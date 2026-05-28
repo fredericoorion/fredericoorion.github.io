@@ -10,11 +10,11 @@
     <meta name="theme-color" content="#22222a" />
     <title>Frederico Orion — Portfolio</title>
 
-    <!-- Favicon: SVG initials FO as inline data URI — no external file needed -->
+    <!-- Favicon: terminal prompt >_ as inline SVG data URI -->
     <link
       rel="icon"
       type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2322222a' rx='6'/><text x='50%25' y='55%25' dominant-baseline='central' text-anchor='middle' fill='%236c5cac' font-family='sans-serif' font-weight='700' font-size='13'>FO</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2322222a' rx='6'/><text x='5' y='22' font-family='monospace' font-weight='700' font-size='16' fill='%236c5cac'>%3E_</text></svg>"
     />
 
     <!-- Google Fonts: Syne (headings) + Outfit (body) -->
@@ -167,7 +167,8 @@
                 aria-label="Open Café Management REST API on GitHub"
               >
                 <img
-                  src="assets/preview-cafe-api.jpg"
+                  src="assets/
+                  "
                   alt="Café Management REST API screenshot"
                   class="card-img"
                 />
@@ -205,11 +206,12 @@
             <article class="project-card section-animate-child">
               <!-- Preview image — add assets/preview-email.jpg when ready -->
               <!-- [PLACEHOLDER — replace href with your slide deck URL] -->
-              <!-- Update href below when slide deck is ready -->
               <a
-                href="#"
+                href="[PLACEHOLDER — replace with your slide deck URL]"
                 class="card-preview"
-                aria-label="Student Email Engagement Analysis — slides coming soon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Student Email Engagement Analysis slide deck"
               >
                 <img
                   src="assets/preview-email.jpg"
@@ -237,10 +239,11 @@
                 <span class="tag">Data Analysis</span>
               </div>
               <!-- [PLACEHOLDER — replace with your slide deck URL] -->
-              <!-- Update href below when slide deck is ready -->
               <a
-                href="#"
+                href="[PLACEHOLDER — replace with your slide deck URL]"
                 class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
                 >View Slides →</a
               >
             </article>
@@ -250,7 +253,7 @@
               <!-- Preview image — add assets/preview-portfolio.jpg when ready -->
               <!-- [PLACEHOLDER — replace href with your deployed URL] -->
               <a
-                href="https://fredericoorion.github.io"
+                href="[PLACEHOLDER — replace with your deployed URL]"
                 class="card-preview"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -279,7 +282,7 @@
               </div>
               <!-- [PLACEHOLDER — replace with your deployed URL] -->
               <a
-                href="https://fredericoorion.github.io"
+                href="[PLACEHOLDER — replace with your deployed URL]"
                 class="btn btn-sm"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -403,7 +406,10 @@
           <div class="contact-inner">
             <!-- Contact info sidebar -->
             <div class="contact-info">
-              <p class="contact-blurb">I'm open to entry-level backend and full-stack roles in Australia. Feel free to reach out through the form or find me on LinkedIn.</p>
+              <p class="contact-blurb">
+                I'm open to entry-level roles in Australia. Feel free to reach
+                out through the form or find me on LinkedIn.
+              </p>
               <div class="contact-socials">
                 <!-- [] LinkedIn URL] -->
                 <a
@@ -425,8 +431,12 @@
               </div>
             </div>
 
-            <!-- Contact form — wired to Formspree -->
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xgoqrdep" method="POST" novalidate>
+            <!-- Contact form
+               To wire up submission with Formspree:
+                 1. Sign up at formspree.io and create a form
+                 2. Add action="https://formspree.io/f/YOUR_ID" method="POST" to the <form> below
+               No JS changes needed — validation still runs before the form submits. -->
+            <form id="contact-form" class="contact-form" novalidate>
               <div class="form-group">
                 <label for="name">Name</label>
                 <input
