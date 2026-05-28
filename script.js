@@ -247,10 +247,23 @@ function initContactForm() {
       isValid = false;
     }
 
-    /* All good — hide form, show thank-you */
+    /* All good — submit to Formspree via fetch, then show thank-you */
     if (isValid) {
-      form.hidden = true;
-      success.hidden = false;
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.hidden = true;
+          success.hidden = false;
+        } else {
+          alert('Something went wrong. Please try again or reach out on LinkedIn.');
+        }
+      }).catch(function () {
+        alert('Network error. Please check your connection and try again.');
+      });
     }
   });
 
