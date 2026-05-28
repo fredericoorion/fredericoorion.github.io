@@ -602,7 +602,7 @@ section {
 
 /* Status badges */
 .card-badge {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -661,7 +661,7 @@ section {
 /* Monospace tech tags */
 .tag {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-sm);
   background: var(--color-accent-dim);
