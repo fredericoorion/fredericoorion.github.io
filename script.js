@@ -256,6 +256,8 @@ function initContactForm() {
         headers: { 'Accept': 'application/json' }
       }).then(function (response) {
         if (response.ok) {
+          var contactInfo = document.querySelector('.contact-info');
+          if (contactInfo) contactInfo.hidden = true;
           form.hidden = true;
           success.hidden = false;
         } else {
