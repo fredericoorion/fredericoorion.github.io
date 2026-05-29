@@ -7,12 +7,127 @@
      initContactForm()      — client-side validation + success state
    ============================== */
 
+/* ==============================
+   PROJECTS DATA
+   To add a project: copy one object and fill in the fields.
+   badge options: "In Progress" | "Case Study" | "Live"
+   badgeClass options: "badge-in-progress" | "badge-case-study" | "badge-live"
+   ============================== */
+var PROJECTS = [
+  {
+    title: "Student Email Engagement Analysis",
+    badge: "Case Study",
+    badgeClass: "badge-case-study",
+    image: "assets/preview-email.jpg",
+    imageAlt: "Student Email Engagement Analysis screenshot",
+    description:
+      "During my internship at Kaplan Business School, I helped the communications team understand why students weren't engaging with their emails. The result was a Power BI dashboard that made the data clear and actionable — something they could actually use.",
+    tags: ["Python", "Power BI", "Data Analysis"],
+    link: "https://drive.google.com/file/d/1uHXTQBNQZl7uFmBQIGbvP7iYDbg4I2Xp/view?usp=sharing",
+    linkLabel: "View Slides →",
+  },
+  {
+    title: "Login & Register App",
+    badge: "Live",
+    badgeClass: "badge-live",
+    image: "assets/login-page.jpg",
+    imgStyle: "object-position: contain",
+    imageAlt: "Login & Register App screenshot",
+    description:
+      "A simple authentication UI built with React. Users can create an account and log in, with client-side validation and localStorage persistence.",
+    tags: ["React", "React Hook Form", "Tailwind CSS"],
+    link: "https://login-screen-ruddy.vercel.app/",
+    linkLabel: "View Site →",
+  },
+  {
+    title: "Portfolio Website",
+    badge: "Live",
+    badgeClass: "badge-live",
+    image: "assets/preview-portfolio.jpg",
+    imageAlt: "Portfolio Website screenshot",
+    description: "Portfolio Website. Deployed on GitHub Pages.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "#",
+    linkLabel: "View Site →",
+  },
+  {
+    title: "Café Management REST API",
+    badge: "Back-end",
+    badgeClass: "badge-in-progress",
+    image: "assets/preview-cafe-api.jpg",
+    imageAlt: "Café Management REST API screenshot",
+    description:
+      "Built to solve a real operational problem: managing a café's menu, orders, and staff access through a clean backend system. Designed with security and maintainability in mind, because software that works in the real world needs both.",
+    tags: ["FastAPI", "PostgreSQL", "Docker", "JWT Auth"],
+    link: "https://github.com/fredericoorion",
+    linkLabel: "GitHub →",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", function () {
+  initProjects();
   initNav();
   initTypewriter();
   initScrollAnimations();
   initContactForm();
 });
+
+/* ==============================
+   initProjects
+   - Reads PROJECTS array and renders one card per entry into #projects-grid
+   ============================== */
+function initProjects() {
+  var grid = document.getElementById("projects-grid");
+  if (!grid) return;
+
+  grid.innerHTML = PROJECTS.map(function (p) {
+    var tags = p.tags
+      .map(function (t) {
+        return '<span class="tag">' + t + "</span>";
+      })
+      .join("");
+
+    return (
+      '<article class="project-card section-animate-child">' +
+      '<a href="' +
+      p.link +
+      '" class="card-preview" target="_blank" rel="noopener noreferrer" aria-label="Open ' +
+      p.title +
+      '">' +
+      '<img src="' +
+      p.image +
+      '" alt="' +
+      p.imageAlt +
+      '" class="card-img" style="' +
+      (p.imgStyle || "") +
+      '" />' +
+      '<div class="card-preview-overlay" aria-hidden="true"></div>' +
+      "</a>" +
+      '<div class="card-header">' +
+      '<span class="card-badge ' +
+      p.badgeClass +
+      '">' +
+      p.badge +
+      "</span>" +
+      "</div>" +
+      '<h3 class="card-title">' +
+      p.title +
+      "</h3>" +
+      '<p class="card-description">' +
+      p.description +
+      "</p>" +
+      '<div class="card-tags">' +
+      tags +
+      "</div>" +
+      '<a href="' +
+      p.link +
+      '" class="btn btn-sm" target="_blank" rel="noopener noreferrer">' +
+      p.linkLabel +
+      "</a>" +
+      "</article>"
+    );
+  }).join("");
+}
 
 /* ==============================
    initNav
@@ -251,21 +366,25 @@ function initContactForm() {
     if (isValid) {
       var data = new FormData(form);
       fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function (response) {
-        if (response.ok) {
-          var contactInfo = document.querySelector('.contact-info');
-          if (contactInfo) contactInfo.hidden = true;
-          form.hidden = true;
-          success.hidden = false;
-        } else {
-          alert('Something went wrong. Please try again or reach out on LinkedIn.');
-        }
-      }).catch(function () {
-        alert('Network error. Please check your connection and try again.');
-      });
+        headers: { Accept: "application/json" },
+      })
+        .then(function (response) {
+          if (response.ok) {
+            var contactInfo = document.querySelector(".contact-info");
+            if (contactInfo) contactInfo.hidden = true;
+            form.hidden = true;
+            success.hidden = false;
+          } else {
+            alert(
+              "Something went wrong. Please try again or reach out on LinkedIn.",
+            );
+          }
+        })
+        .catch(function () {
+          alert("Network error. Please check your connection and try again.");
+        });
     }
   });
 
