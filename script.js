@@ -21,7 +21,7 @@ var PROJECTS = [
     image: "assets/preview-email.jpg",
     imageAlt: "Student Email Engagement Analysis screenshot",
     description:
-      "During my internship at Kaplan Business School, I helped the communications team understand why students weren't engaging with their emails. The result was a Power BI dashboard that made the data clear and actionable — something they could actually use.",
+      "During my internship at Kaplan Business School, I helped the communications team understand why some students weren't engaging with their emails. I built a Power BI dashboard using DAX across 192 students that made the answer clear. High achievers were clicking three times more than at-risk students, and the team finally had data they could act on.",
     tags: ["Python", "Power BI", "Data Analysis"],
     link: "https://drive.google.com/file/d/1uHXTQBNQZl7uFmBQIGbvP7iYDbg4I2Xp/view?usp=sharing",
     linkLabel: "View Slides →",
@@ -45,7 +45,8 @@ var PROJECTS = [
     badgeClass: "badge-live",
     image: "assets/preview-portfolio.jpg",
     imageAlt: "Portfolio Website screenshot",
-    description: "Portfolio Website. Deployed on GitHub Pages.",
+    description:
+      "Personal portfolio built from scratch using HTML, CSS, and vanilla JavaScript.",
     tags: ["HTML", "CSS", "JavaScript"],
     link: "#",
     linkLabel: "View Site →",
