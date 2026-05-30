@@ -233,7 +233,7 @@ function initTypewriter() {
   var words = [
     "IT Undergraduate",
     "Tech Professional",
-    "Full-Stack Developer",
+    "Data Analysis",
     "Problem Solver",
   ];
   var el = document.getElementById("typewriter");
