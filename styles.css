@@ -595,6 +595,48 @@ section {
   box-shadow: 0 10px 36px rgba(108, 92, 172, 0.2);
 }
 
+/* Featured card — first project, side-by-side at tablet+ */
+@media (min-width: 768px) {
+  .project-card.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+
+  .project-card.featured .card-preview {
+    width: 45%;
+    height: auto;
+    min-height: 280px;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .project-card.featured .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .project-card.featured .card-header {
+    padding: 0 0 var(--space-sm);
+  }
+
+  .project-card.featured .card-title {
+    font-size: 1.25rem;
+  }
+
+  .project-card.featured .card-description {
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .project-card.featured .btn-sm {
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+  }
+}
+
 /* Badge row at top of card */
 .card-header {
   padding: var(--space-lg) var(--space-lg) 0;

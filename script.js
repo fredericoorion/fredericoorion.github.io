@@ -15,6 +15,19 @@
    ============================== */
 var PROJECTS = [
   {
+    title: "SA Road Safety Analysis",
+    badge: "Data Analysis",
+    badgeClass: "badge-case-study",
+    image: "assets/sa-road-data.jpg",
+    imageAlt: "SA road safety dashboard screenshot",
+    description:
+      "A public dashboard analysing five years of SA Government road crash data. Built with React and Recharts, it maps crash patterns across time, location, and conditions — and links every finding to a specific recommendation.",
+    tags: ["React", "Recharts", "Data Analysis", "Python"],
+
+    link: "https://sa-road-data.vercel.app/",
+    linkLabel: "View Site →",
+  },
+  {
     title: "Student Email Engagement Analysis",
     badge: "Case Study",
     badgeClass: "badge-case-study",
@@ -24,7 +37,7 @@ var PROJECTS = [
       "During my internship at Kaplan Business School, I helped the communications team understand why some students weren't engaging with their emails. I built a Power BI dashboard using DAX across 192 students that made the answer clear. High achievers were clicking three times more than at-risk students, and the team finally had data they could act on.",
     tags: ["Python", "Power BI", "Data Analysis"],
     link: "https://drive.google.com/file/d/1uHXTQBNQZl7uFmBQIGbvP7iYDbg4I2Xp/view?usp=sharing",
-    linkLabel: "View Slides →",
+    linkLabel: "View Slide →",
   },
   {
     title: "Login & Register App",
@@ -39,18 +52,18 @@ var PROJECTS = [
     link: "https://login-screen-ruddy.vercel.app/",
     linkLabel: "View Site →",
   },
-  {
-    title: "Portfolio Website",
-    badge: "Live",
-    badgeClass: "badge-live",
-    image: "assets/preview-portfolio.jpg",
-    imageAlt: "Portfolio Website screenshot",
-    description:
-      "Personal portfolio built from scratch using HTML, CSS, and vanilla JavaScript.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
-    linkLabel: "View Site →",
-  },
+  // {
+  //   title: "Portfolio Website",
+  //   badge: "Live",
+  //   badgeClass: "badge-live",
+  //   image: "assets/preview-portfolio.jpg",
+  //   imageAlt: "Portfolio Website screenshot",
+  //   description:
+  //     "Personal portfolio built from scratch using HTML, CSS, and vanilla JavaScript.",
+  //   tags: ["HTML", "CSS", "JavaScript"],
+  //   link: "#",
+  //   linkLabel: "View Site →",
+  // },
   {
     title: "Café Management REST API",
     badge: "Back-end",
@@ -81,15 +94,20 @@ function initProjects() {
   var grid = document.getElementById("projects-grid");
   if (!grid) return;
 
-  grid.innerHTML = PROJECTS.map(function (p) {
+  grid.innerHTML = PROJECTS.map(function (p, index) {
     var tags = p.tags
       .map(function (t) {
         return '<span class="tag">' + t + "</span>";
       })
       .join("");
 
-    return (
-      '<article class="project-card section-animate-child">' +
+    var isFeatured = index === 0;
+    var cardClass =
+      "project-card" +
+      (isFeatured ? " featured" : "") +
+      " section-animate-child";
+
+    var imageBlock =
       '<a href="' +
       p.link +
       '" class="card-preview" target="_blank" rel="noopener noreferrer" aria-label="Open ' +
@@ -103,7 +121,9 @@ function initProjects() {
       (p.imgStyle || "") +
       '" />' +
       '<div class="card-preview-overlay" aria-hidden="true"></div>' +
-      "</a>" +
+      "</a>";
+
+    var contentBlock =
       '<div class="card-header">' +
       '<span class="card-badge ' +
       p.badgeClass +
@@ -124,7 +144,16 @@ function initProjects() {
       p.link +
       '" class="btn btn-sm" target="_blank" rel="noopener noreferrer">' +
       p.linkLabel +
-      "</a>" +
+      "</a>";
+
+    return (
+      '<article class="' +
+      cardClass +
+      '">' +
+      imageBlock +
+      (isFeatured
+        ? '<div class="card-body">' + contentBlock + "</div>"
+        : contentBlock) +
       "</article>"
     );
   }).join("");
