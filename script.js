@@ -231,10 +231,10 @@ function initNav() {
    ============================== */
 function initTypewriter() {
   var words = [
-    "IT Undergraduate",
     "Tech Professional",
     "Data Analysis",
     "Problem Solver",
+    "IT Undergraduate",
   ];
   var el = document.getElementById("typewriter");
   if (!el) return;
